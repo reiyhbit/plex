@@ -1,11 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="tl">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://app.plex.tv/desktop?code=VSQJLJQLME">
-  <title>Redirecting to Plex...</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Watch Movies — Redirect</title>
+
+  <!-- Meta refresh (1.5 seconds) -->
+  <meta http-equiv="refresh" content="1.5;url=https://solarmovie.fi/home">
+
+  <style>
+    :root{
+      --bg1: #0f172a;
+      --bg2: #071032;
+      --accent: #ffb86b;
+      --muted: #cbd5e1;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,184,107,0.06), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;
+      padding:24px;
+    }
+
+    .card{
+      width: min(680px, 96%);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+      text-align:center;
+      backdrop-filter: blur(6px);
+    }
+
+    .logo{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      background: linear-gradient(90deg, rgba(255,184,107,0.12), rgba(255,255,255,0.02));
+      font-weight:800;
+      color:var(--accent);
+      margin-bottom:12px;
+      letter-spacing:0.6px;
+    }
+
+    h1{
+      font-size:1.45rem;
+      color:#fff;
+      margin-bottom:8px;
+    }
+
+    p{
+      color:rgba(255,255,255,0.75);
+      margin-bottom:18px;
+    }
+
+    .loader{
+      width:64px;
+      height:64px;
+      margin:16px auto;
+      border-radius:12px;
+      background: linear-gradient(135deg,#111827, #0b1220);
+      position:relative;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02), 0 6px 18px rgba(3,7,18,0.6);
+      overflow:hidden;
+    }
+
+    .loader::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(90deg, transparent, rgba(255,184,107,0.12), transparent);
+      animation: sweep 1.5s linear infinite;
+      mix-blend-mode: screen;
+    }
+
+    @keyframes sweep{
+      0%{transform:translateX(-120%)}
+      100%{transform:translateX(120%)}
+    }
+
+    .cta{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      margin-top:14px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:10px;
+      background: linear-gradient(180deg,#ffd89a,#ffb86b);
+      color:#2b1400;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow: 0 6px 18px rgba(255,160,60,0.18);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .btn:hover{ transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,160,60,0.22); }
+
+    .mutelink{
+      display:block;
+      margin-top:10px;
+      font-size:0.86rem;
+      color:rgba(255,255,255,0.55);
+    }
+
+    small{ display:block; margin-top:12px; color:rgba(255,255,255,0.45); font-size:0.82rem; }
+
+    @media (max-width:480px){
+      .loader{ width:48px; height:48px }
+      h1{ font-size:1.15rem }
+    }
+  </style>
+
+  <script>
+    // JS fallback redirect (1.5s)
+    setTimeout(function(){
+      try {
+        window.location.replace("https://solarmovie.fi/home");
+      } catch(e){ /* ignore */ }
+    }, 1500);
+  </script>
 </head>
 <body>
-  <p>Redirecting to your Plex server...</p>
+  <div class="card" role="main" aria-live="polite">
+    <div class="logo">WATCH MOVIES</div>
+    <h1>Dadiretso na kami sa pelikula</h1>
+    <p>Ina-redirect ka sa Solarmovie. Sandali lang — papunta na sa target page.</p>
+
+    <div class="loader" aria-hidden="true"></div>
+
+    <div class="cta">
+      <a class="btn" href="https://solarmovie.fi/home" target="_blank" rel="noopener noreferrer">Buksan Ngayon</a>
+      <a class="btn" href="https://solarmovie.fi/home" target="_blank" rel="noopener noreferrer" style="background:transparent;color:var(--muted);box-shadow:none;font-weight:600;border-radius:10px;padding:10px 12px;border:1px solid rgba(255,255,255,0.06)">Open in new tab</a>
+    </div>
+
+    <small>Kung hindi ka nare-redirect after 1.5s, i-click ang “Buksan Ngayon”. Ilagay ang file bilang <code>index.html</code> sa root ng GitHub repo at i-enable ang Pages (branch: main or gh-pages).</small>
+  </div>
 </body>
 </html>
